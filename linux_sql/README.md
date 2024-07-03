@@ -38,7 +38,7 @@ This project was implemented using Gitflow.
 
 ## Architecture
 
-![](./assets/Linux.drawio.png)
+![](./assets/Linux.jpg)
 
 - PSQL database to persist all the data.
 - `host_info.sh` collects hardware specifications and inserts into the database.
