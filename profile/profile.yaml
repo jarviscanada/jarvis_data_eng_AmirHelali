@@ -1,7 +1,7 @@
 # Preferred name (Characters only)
 name: "Amir Helali"
 # Your GitHub repo root URL
-github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_demo
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AmirHelali
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
@@ -13,24 +13,34 @@ skills:
   # At least 5 skills
   proficient:
     - Java
-    - Linux/Bash
+    - C#
+    - React
     - RDBMS/SQL
+    - Linux/Bash
+    - REST API
+    - Docker
+    - Azure
+    - JUnit
+    - NUnit
     - Agile/Scrum
-    - Git
+    - Git/Github
   # At least 5 skills
   competent:
-    - Donec
-    - fermentum
-    - Donec
-    - fermentum
-    - Donec
+    - Angular
+    - Python
+    - JavaScript
+    - .Net
+    - Node
+    - C++
+    - Google Cloud Platform
   # At least 5 skills
   familiar:
-    - Donec
-    - fermentum
-    - fermentum
-    - fermentum
-    - fermentum
+    - Kubernetes
+    - Xamarin
+    - TensorFlow
+    - Microsoft Power Platform
+    - Hadoop
+    - Figma
 
 # List of Jarvis projects
 jarvis_projects:
@@ -45,21 +55,6 @@ jarvis_projects:
       - "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
       - "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
       - "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
 
 # List of personal or academic projects
 # Feel free to add more projects
@@ -79,45 +74,43 @@ highlighted_projects:
 #The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
 professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
-  - title: "Software Developer"
+  - title: "Developer"
     company: "Jarvis"
-    duration: "2020-present"
+    duration: "2024-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
-  - title: "Tutor"
-    company: "XYZ Company"
-    duration: "2019"
+    description: "Developed a program for Linux cluster management following Agile principles, and utilizing Docker, bash scripts, PostgreSQL, Gitflow, and Cron."
+  - title: "Developer(Co-op)"
+    company: "Ministry of Public and Business Service Delivery"
+    duration: "Jan 2023-Aug 2023"
     description: "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis."
 
 #List of edcuation
 education: 
-  - school_name: "XYZ university"
-    duration: "2012-2016"
-    degree: "Bachelor of Applied Sciences"
-    department: "Electrical and Computer Engineering"
+  - school_name: "Seneca College"
+    duration: "2019-2023"
+    degree: "Honours Bachelor of Technology - Software Development"
+    department: "Software Design and Data Science"
     # optional
     awards_achievements: 
-      - "Scholarship"
-      - "Dean's List (2015, 2016): Ut enim ad minim veniam"
-      - "GPA: 3.8/4.0"
-  - school_name: "XYZ university"
-    duration: "2016-2018"
-    degree: "Master of Engineering"
-    department: "Electrical and Computer Engineering"
-    awards_achievements: 
+      - "4x annual Scholarship"
+      - "3x President's Honours List"
+      - "GPA: 3.9/4.0"
 
 #Optional section
 others:
     #category
+  - title: "Awards"
+    bullets:
+      - "Winner of the 4th annual Microsoft & OPS hackathon in the best increases efficiency, effectiveness, and speed of government operations category"
   - title: "Certificates"
     #list of items
     bullets:
-      - "Udacity Machine Learning (2019)"
-  - title: "Awards"
-    bullets:
-      - "Winner"
+      - "CPR & First-Aid certified"
   - title: "Activities/Hobbies"
     bullets:
-      - "Basketball player"
-      - "Competitive gaming"
-      - "Volunteer, ABC Food bank: Ut enim ad minim veniam"
+      - "Making video games in Unity & Unreal during my off time"
+      - "Snowboarding"
+      - "Soccer Player(goalkeeper)"
+      - "Classical Guitar Player"
+      - "Fan of Fantasy and Sci-fi books, movies, shows, and video games"
+      - "Traveling and learning about new cultures through their people, landmarks, and cuisines."

@@ -2,21 +2,14 @@
   "education": [
     {
       "awards_achievements": [
-        "Scholarship",
-        "Dean's List (2015, 2016): Ut enim ad minim veniam",
-        "GPA: 3.8/4.0"
+        "4x annual Scholarship",
+        "3x President's Honours List",
+        "GPA: 3.9/4.0"
       ],
-      "degree": "Bachelor of Applied Sciences",
-      "department": "Electrical and Computer Engineering",
-      "duration": "2012-2016",
-      "school_name": "XYZ university"
-    },
-    {
-      "awards_achievements": null,
-      "degree": "Master of Engineering",
-      "department": "Electrical and Computer Engineering",
-      "duration": "2016-2018",
-      "school_name": "XYZ university"
+      "degree": "Honours Bachelor of Technology - Software Development",
+      "department": "Software Design and Data Science",
+      "duration": "2019-2023",
+      "school_name": "Seneca College"
     }
   ],
   "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_demo",
@@ -77,21 +70,24 @@
   "others": [
     {
       "bullets": [
-        "Udacity Machine Learning (2019)"
-      ],
-      "title": "Certificates"
-    },
-    {
-      "bullets": [
-        "Winner"
+        "Winner of the 4th annual Microsoft \u0026 OPS hackathon in the best increases efficiency, effectiveness, and speed of government operations category"
       ],
       "title": "Awards"
     },
     {
       "bullets": [
-        "Basketball player",
-        "Competitive gaming",
-        "Volunteer, ABC Food bank: Ut enim ad minim veniam"
+        "CPR \u0026 First-Aid certified"
+      ],
+      "title": "Certificates"
+    },
+    {
+      "bullets": [
+        "Making video games in Unity \u0026 Unreal during my off time",
+        "Snowboarding",
+        "Soccer Player(goalkeeper)",
+        "Classical Guitar Player",
+        "Fan of Fantasy and Sci-fi books, movies, shows, and video games",
+        "Traveling and learning about new cultures through their people, landmarks, and cuisines."
       ],
       "title": "Activities/Hobbies"
     }
@@ -100,37 +96,47 @@
     {
       "company": "Jarvis",
       "description": "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.",
-      "duration": "2020-present",
-      "title": "Software Developer"
+      "duration": "2024-present",
+      "title": "Developer"
     },
     {
-      "company": "XYZ Company",
+      "company": "Ministry of Public and Business Service Delivery",
       "description": "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.",
-      "duration": "2019",
-      "title": "Tutor"
+      "duration": "Jan 2023-Aug 2023",
+      "title": "Developer"
     }
   ],
   "skills": {
     "competent": [
-      "Donec",
-      "fermentum",
-      "Donec",
-      "fermentum",
-      "Donec"
+      "Angular",
+      "Python",
+      "JavaScript",
+      ".Net",
+      "Node",
+      "C++",
+      "Google Cloud Platform"
     ],
     "familiar": [
-      "Donec",
-      "fermentum",
-      "fermentum",
-      "fermentum",
-      "fermentum"
+      "Kubernetes",
+      "Xamarin",
+      "TensorFlow",
+      "Microsoft Power Platform",
+      "Hadoop",
+      "Figma"
     ],
     "proficient": [
       "Java",
-      "Linux/Bash",
+      "C#",
+      "React",
       "RDBMS/SQL",
+      "Linux/Bash",
+      "REST API",
+      "Docker",
+      "Azure",
+      "JUnit",
+      "NUnit",
       "Agile/Scrum",
-      "Git"
+      "Git/Github"
     ]
   },
   "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit."

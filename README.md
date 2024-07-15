@@ -4,11 +4,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** Java, C#, React, RDBMS/SQL, Linux/Bash, REST API, Docker, Azure, JUnit, NUnit, Agile/Scrum, Git/Github
 
-**Competent:** Donec, fermentum, Donec, fermentum, Donec
+**Competent:** Angular, Python, JavaScript, .Net, Node, C++, Google Cloud Platform
 
-**Familiar:** Donec, fermentum, fermentum, fermentum, fermentum
+**Familiar:** Kubernetes, Xamarin, TensorFlow, Microsoft Power Platform, Hadoop, Figma
 
 ## Jarvis Projects
 
@@ -42,23 +42,24 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_demo](http
 
 ## Professional Experiences
 
-**Software Developer, Jarvis (2020-present)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Developer, Jarvis (2024-present)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
 
-**Tutor, XYZ Company (2019)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Developer, Ministry of Public and Business Service Delivery (Jan 2023-Aug 2023)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
 
 
 ## Education
-**XYZ university (2012-2016)**, Bachelor of Applied Sciences, Electrical and Computer Engineering
-- Scholarship
-- Dean's List (2015, 2016): Ut enim ad minim veniam
-- GPA: 3.8/4.0
-
-**XYZ university (2016-2018)**, Master of Engineering, Electrical and Computer Engineering
+**Seneca College (2019-2023)**, Honours Bachelor of Technology - Software Development, Software Design and Data Science
+- 4x annual Scholarship
+- 3x President's Honours List
+- GPA: 3.9/4.0
 
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Winner
-- Basketball player
-- Competitive gaming
-- Volunteer, ABC Food bank: Ut enim ad minim veniam
+- Winner of the 4th annual Microsoft & OPS hackathon in the best increases efficiency, effectiveness, and speed of government operations category
+- CPR & First-Aid certified
+- Making video games in Unity & Unreal during my off time
+- Snowboarding
+- Soccer Player(goalkeeper)
+- Classical Guitar Player
+- Fan of Fantasy and Sci-fi books, movies, shows, and video games
+- Traveling and learning about new cultures through their people, landmarks, and cuisines.
