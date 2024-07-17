@@ -1,12 +1,12 @@
 # Amir Helali . Jarvis Consulting
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+Skilled and solution-driven full-stack developer with more than a year of experience. My critical thinking approach, application of software engineering principles, and adherence to testing, has allowed me to consistently create and deliver highly optimized, well-structured solutions. Java, .Net, REST APIs, RDBMS/SQL, React and Angular are my forte with a competency in Azure cloud services. My personal and professional experiences have made me highly adaptable and have taught me excellent communication and time management skills; therefore, I thrive in collaborative environments or working independently under pressure. I am dedicated to continuously improve by learning new concepts and technologies and eager to showcase my abilities.
 
 ## Skills
 
-**Proficient:** Java, .Net, React, RDBMS/SQL, Linux/Bash, REST API, Docker, Azure, JUnit, NUnit, Agile/Scrum, Git/Github
+**Proficient:** Java, .Net, React, RDBMS/SQL, Linux/Bash, REST API, Docker, JUnit, NUnit, Agile/Scrum, Git/Github
 
-**Competent:** Angular, Python, JavaScript, NodeJS, Spring, Powershell, C++, Google Cloud Platform
+**Competent:** Angular, Python, Azure, JavaScript, NodeJS, Spring, Powershell, C++, Google Cloud Platform
 
 **Familiar:** Kubernetes, Xamarin, TensorFlow, Microsoft Power Platform, Figma
 
@@ -15,13 +15,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AmirHelali](https://github.com/jarviscanada/jarvis_data_eng_AmirHelali)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AmirHelali/tree/master/linux_sql)]: Developed a linux cluster monitoring agent to collect and store important hardware specifications and resource usage data for each node. This solution enables administrators to make key decisions based on the collected data for resource management and planning. It was Developed using Feature Branch Workflow within Git to ensure encapsulation and tracking. Implemented bash scripts to automate data collection and storage. Setup PostgreSQL database as a docker container to ensure compatability and data consistency/integrity. Configured a cron job to automate the execution of scripts for consistent data collection/storage.
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AmirHelali/tree/master/linux_sql)]: Developed a linux cluster monitoring agent to collect and store important hardware specifications and resource usage data for each node. This solution enables administrators to make key decisions based on the collected data for resource management and planning. It was Developed using Feature Branch Workflow within Git to ensure encapsulation and tracking. Implemented bash scripts to automate data collection and storage. Setup PostgreSQL database as a docker container to ensure compatability and data integrity. Configured a cron job to automate the execution of scripts for consistent data collection and storage.
 
 
 ## Highlighted Projects
 **Travel Companion**: Developed a social media style web app for travellers to meet up with other fellow travellers and keep track of their activities during their adventures. Used Agile methodology to ensure sustainable development. Designed wireframes and mockups using Figma to provide a blueprint for the visual elements. Implemented a modern UI for profiles using React, CSS and Bootstrap to ensure responsiveness, consistency and maintainability. Created ERDs using Visual Paradigm for database design. Implemented APIs and middlewares using Node.js and Express to process data exchange between the client and the server. Implemented a Google maps functionality using the Google maps api. Built a CI/CD workflow using Github actions. This was a group capstone project during my studies which allowed me to master and showcase my skills as a full-stack developer, and gain experience in project management while collaborating with others.
 
-**Firewall Rules API**: Transformed Powershell scripts in charge of creating, configuring and storing firewall rules into serverless REST APIs using Azure Functions in .Net. The purpose of this project was for improved integration, scalability and maintainability. Implemented authentication using Azure AD to ensure security. Utilized various Azure App-Service APIs to perform CRUD operations. Utilized Entity Framework ORM for improved productivity, and Nunit for testing. This was my main project during my co-op term at MPBSD and it allowed me to hone my skills as a backend developer in a real work environment; it allowed me to learn about fundamental Azure cloud concepts. During this project, I gained real experience with Agile Methodology by participating in sprint plannings, daily scrums, sprint review and retrospective.
+**Firewall Rules API**: Transformed Powershell scripts in charge of creation, configuration and storage of firewall rules, into serverless REST APIs, using Azure Functions and .Net. The purpose of this project was for improved integration, scalability and maintainability. Implemented authentication using Azure AD to ensure security. Utilized various Azure App-Service APIs to perform CRUD operations. Utilized Entity Framework ORM for improved productivity, and Nunit for testing. This was my main project during my co-op term at MPBSD and it allowed me to hone my skills as a backend developer in a real work environment and to learn about fundamental Azure cloud concepts. During this project, I gained real experience with Agile Methodology by participating in sprint plannings, daily scrums, sprint review and retrospective.
 
 
 ## Professional Experiences
