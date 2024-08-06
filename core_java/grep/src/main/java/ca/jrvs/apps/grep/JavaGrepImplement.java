@@ -4,9 +4,11 @@ import com.sun.org.slf4j.internal.Logger;
 import com.sun.org.slf4j.internal.LoggerFactory;
 
 import java.io.*;
-import java.util.*;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.regex.*;
+import java.util.stream.*;
 
 public class JavaGrepImplement implements JavaGrep{
 
@@ -15,81 +17,70 @@ public class JavaGrepImplement implements JavaGrep{
     private String regex;
     private String rootPath;
     private String outFile;
+    private Pattern pattern;
 
     @Override
     public void process() throws IOException {
-        List<String> matchedLines = new ArrayList<>();
-        List<File> files = listFiles(this.rootPath);
-
-        for (File f : listFiles(this.rootPath)){
-            for (String l : readLines(f)){
-                if (containsPattern(l)){
-                    matchedLines.add(l);
+        try (Stream<File> files = listFiles(this.rootPath)) {
+            try (Stream<String> matchedLines = files.flatMap(file -> {
+                try {
+                    return readLines(file).filter(this::containsPattern);
+                } catch (IOException e) {
+                    logger.error("Error reading file: " + file.getPath(), e);
+                    return Stream.empty();
                 }
+            })) {
+                writeToFile(matchedLines);
             }
         }
-        writeToFile(matchedLines);
     }
 
     @Override
-    public List<File> listFiles(String rootDir) {
-        List<File> files;
-        File directoryPath = new File(rootDir);
-        files = Arrays.asList(Objects.requireNonNull(directoryPath.listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File file) {
-                return file.isFile();
-            }
-        })));
-
-        return files;
+    public Stream<File> listFiles(String rootDir) {
+        try {
+            return Files.walk(Paths.get(rootDir)).filter(Files::isRegularFile).map(Path::toFile);
+        } catch (IOException e) {
+            logger.error("Error listing files in directory: " + rootDir, e);
+            return Stream.empty();
+        }
     }
 
     @Override
-    public List<String> readLines(File inputFile) {
-
-        List<String> lines = new ArrayList<>();
-
-        if(inputFile.isFile()){
-            try(BufferedReader br = new BufferedReader(new FileReader(inputFile))){
-                String line;
-                while((line = br.readLine()) != null){
-                    lines.add(line);
-                }
-            }catch(IOException e){
-                this.logger.error("Error: reading failed.", e);
-            }
-        }else{
+    public Stream<String> readLines(File inputFile) throws IOException{
+        if (!inputFile.isFile()) {
             throw new IllegalArgumentException("Error: Input file is invalid.");
         }
-
-        return lines;
+        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+        return reader.lines().onClose(() -> {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                logger.error("Error closing BufferedReader", e);
+            }
+        });
     }
 
     @Override
     public boolean containsPattern(String line) {
-
-        boolean retVal = false;
-        Pattern pattern = Pattern.compile(this.regex);
-        Matcher matcher = pattern.matcher(line);
-
-        if (matcher.find()){
-            retVal = true;
-        }
-
-        return retVal;
+        return pattern.matcher(line).find();
     }
 
     @Override
-    public void writeToFile(List<String> lines) throws IOException {
-        File fOut = new File(this.outFile);
-        try (FileOutputStream fos = new FileOutputStream(fOut); BufferedWriter buffW = new BufferedWriter(new OutputStreamWriter(fos))){
-            for (String s : lines){
-                buffW.write(s);
-                buffW.newLine();
-            }
-        } catch (IOException ex){
-            throw new IOException("Writing to file failed",ex);
+    public void writeToFile(Stream<String> lines) throws IOException {
+        try (FileOutputStream fos = new FileOutputStream(outFile);
+             OutputStreamWriter osw = new OutputStreamWriter(fos);
+             BufferedWriter writer = new BufferedWriter(osw)) {
+            lines.forEach(line -> {
+                try {
+                    writer.write(line);
+                    writer.newLine();
+                } catch (IOException e) {
+                    logger.error("Error writing to file: " + outFile, e);
+                    throw new UncheckedIOException(e);
+                }
+            });
+        } catch (UncheckedIOException e) {
+            throw e.getCause();
         }
     }
 
@@ -111,6 +102,7 @@ public class JavaGrepImplement implements JavaGrep{
     @Override
     public void setRegex(String regex) {
         this.regex = regex;
+        this.pattern = Pattern.compile(regex);
     }
 
     @Override
@@ -135,8 +127,8 @@ public class JavaGrepImplement implements JavaGrep{
 
         try{
             javaGrepImp.process();
-        } catch (Exception ex){
-            javaGrepImp.logger.error("Error: Unable to process", ex);
+        } catch (Exception e){
+            javaGrepImp.logger.error("Error: Unable to process", e);
         }
     }
 }
