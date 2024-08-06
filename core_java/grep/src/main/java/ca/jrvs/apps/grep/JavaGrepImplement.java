@@ -1,7 +1,7 @@
 package ca.jrvs.apps.grep;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -26,7 +26,7 @@ public class JavaGrepImplement implements JavaGrep{
                 try {
                     return readLines(file).filter(this::containsPattern);
                 } catch (IOException e) {
-                    logger.error("Error reading file: " + file.getPath(), e);
+                    logger.error("Error reading file: {}", file.getPath(), e);
                     return Stream.empty();
                 }
             })) {
@@ -40,7 +40,7 @@ public class JavaGrepImplement implements JavaGrep{
         try {
             return Files.walk(Paths.get(rootDir)).filter(Files::isRegularFile).map(Path::toFile);
         } catch (IOException e) {
-            logger.error("Error listing files in directory: " + rootDir, e);
+            logger.error("Error listing files in directory: {}", rootDir, e);
             return Stream.empty();
         }
     }
@@ -75,7 +75,7 @@ public class JavaGrepImplement implements JavaGrep{
                     writer.write(line);
                     writer.newLine();
                 } catch (IOException e) {
-                    logger.error("Error writing to file: " + outFile, e);
+                    logger.error("Error writing to file: {}", outFile, e);
                     throw new UncheckedIOException(e);
                 }
             });
