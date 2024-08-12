@@ -26,7 +26,9 @@ for file in listFilesRecursively(rootDir)
         matchedLines.add(line)
 writeToFile(matchedLines)
 ```
-**Note:** The original implementation was updated to utilize streams and lambdas.
+## Performance Issue
+The original implementation utilized lists and for loops. However, when processing a larger data set that would result in OutOfMemoryError.
+To tackle this issue the application was reimplemented using streams for lazy operation.
 
 # Test
 
