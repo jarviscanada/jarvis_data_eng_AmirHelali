@@ -12,9 +12,9 @@ public class QuoteHttpHelper {
     private String apiKey;
     private OkHttpClient client;
 
-    public QuoteHttpHelper(){
-        this.apiKey = System.getenv("ALPHA_API_KEY");
-        this.client = new OkHttpClient();
+    public QuoteHttpHelper(String apiKey, OkHttpClient client){
+        this.apiKey = apiKey;
+        this.client = client;
     }
 
     public Quote fetchQuoteInfo(String symbol) throws IllegalArgumentException{

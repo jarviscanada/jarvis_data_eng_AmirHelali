@@ -1,10 +1,11 @@
 package ca.jrvs.apps.jdbc.stockquote.service;
 
-import ca.jrvs.apps.jdbc.sotckquote.dao.Position;
-import ca.jrvs.apps.jdbc.sotckquote.dao.PositionDao;
-import ca.jrvs.apps.jdbc.sotckquote.dao.Quote;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteDao;
+import ca.jrvs.apps.jdbc.sotckquote.dao.*;
+import okhttp3.OkHttpClient;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Optional;
 
 public class PositionService {
@@ -19,7 +20,7 @@ public class PositionService {
     public Position buy(String ticker, int numberOfShares, double price){
         Optional<Quote> quoteOptional = quoteDao.findById(ticker);
         if(!quoteOptional.isPresent()){
-            throw new IllegalArgumentException("No data available for the symbol: " + ticker);
+            throw new IllegalArgumentException("No data available for the symbol: " + ticker + ". Please fetch the quote first.");
         }
         Quote quote = quoteOptional.get();
         if(numberOfShares > quote.getVolume()){
@@ -44,4 +45,20 @@ public class PositionService {
     public void sell(String ticker){
         positionDao.deleteById(ticker);
     }
+
+    /*public static void main (String[] args){
+        String url = "jdbc:postgresql://localhost:5432/stock_quote";
+        try(Connection c = DriverManager.getConnection(url, "postgres", "rocky1234")){
+            QuoteDao qDao = new QuoteDao(c);
+            PositionDao pDao = new PositionDao(c);
+            OkHttpClient client = new OkHttpClient();
+            String api = "b5e19a9367msh7c400828f56fb0bp1a31ddjsna5da8e59418b";
+            QuoteHttpHelper httpHelper = new QuoteHttpHelper(api, client);
+            PositionService pService = new PositionService(pDao, qDao);
+            pService.sell("AAPL");
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }*/
 }
