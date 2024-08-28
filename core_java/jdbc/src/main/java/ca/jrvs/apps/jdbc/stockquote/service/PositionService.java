@@ -1,11 +1,10 @@
 package ca.jrvs.apps.jdbc.stockquote.service;
 
-import ca.jrvs.apps.jdbc.sotckquote.dao.*;
-import okhttp3.OkHttpClient;
+import ca.jrvs.apps.jdbc.stockquote.dao.Position;
+import ca.jrvs.apps.jdbc.stockquote.dao.PositionDao;
+import ca.jrvs.apps.jdbc.stockquote.dao.Quote;
+import ca.jrvs.apps.jdbc.stockquote.dao.QuoteDao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Optional;
 
 public class PositionService {
@@ -44,6 +43,10 @@ public class PositionService {
 
     public void sell(String ticker){
         positionDao.deleteById(ticker);
+    }
+
+    public Optional<Position> getPosition(String ticker){
+        return positionDao.findById(ticker);
     }
 
     /*public static void main (String[] args){

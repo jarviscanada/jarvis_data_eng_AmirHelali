@@ -1,8 +1,8 @@
 package ca.jrvs.apps.jdbc.stockquote.service;
 
-import ca.jrvs.apps.jdbc.sotckquote.dao.Quote;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteDao;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteHttpHelper;
+import ca.jrvs.apps.jdbc.stockquote.dao.Quote;
+import ca.jrvs.apps.jdbc.stockquote.dao.QuoteDao;
+import ca.jrvs.apps.jdbc.stockquote.dao.QuoteHttpHelper;
 import okhttp3.OkHttpClient;
 import org.junit.After;
 import org.junit.Before;

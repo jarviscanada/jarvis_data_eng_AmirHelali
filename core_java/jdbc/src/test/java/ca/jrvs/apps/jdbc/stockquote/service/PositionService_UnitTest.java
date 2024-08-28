@@ -1,9 +1,9 @@
 package ca.jrvs.apps.jdbc.stockquote.service;
 
-import ca.jrvs.apps.jdbc.sotckquote.dao.Position;
-import ca.jrvs.apps.jdbc.sotckquote.dao.PositionDao;
-import ca.jrvs.apps.jdbc.sotckquote.dao.Quote;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteDao;
+import ca.jrvs.apps.jdbc.stockquote.dao.Position;
+import ca.jrvs.apps.jdbc.stockquote.dao.PositionDao;
+import ca.jrvs.apps.jdbc.stockquote.dao.Quote;
+import ca.jrvs.apps.jdbc.stockquote.dao.QuoteDao;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;

@@ -1,4 +1,4 @@
-package ca.jrvs.apps.jdbc.sotckquote.dao;
+package ca.jrvs.apps.jdbc.stockquote.dao;
 
 import java.math.BigDecimal;
 import java.sql.*;

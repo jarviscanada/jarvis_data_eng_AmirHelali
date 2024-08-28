@@ -1,6 +1,4 @@
 package ca.jrvs.apps.jdbc.stockquote.dao;
-import ca.jrvs.apps.jdbc.sotckquote.dao.Quote;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteDao;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,13 +1,9 @@
 package ca.jrvs.apps.jdbc.stockquote.service;
 
-import ca.jrvs.apps.jdbc.sotckquote.dao.Quote;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteDao;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteHttpHelper;
-import okhttp3.OkHttpClient;
+import ca.jrvs.apps.jdbc.stockquote.dao.Quote;
+import ca.jrvs.apps.jdbc.stockquote.dao.QuoteDao;
+import ca.jrvs.apps.jdbc.stockquote.dao.QuoteHttpHelper;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Optional;
 
 public class QuoteService {

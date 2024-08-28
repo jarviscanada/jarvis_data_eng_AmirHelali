@@ -1,4 +1,4 @@
-package ca.jrvs.apps.jdbc.sotckquote.dao;
+package ca.jrvs.apps.jdbc.stockquote.dao;
 
 import ca.jrvs.apps.jdbc.example.dto.JsonParser;
 import okhttp3.OkHttpClient;

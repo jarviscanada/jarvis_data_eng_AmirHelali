@@ -2,9 +2,9 @@ package ca.jrvs.apps.jdbc.stockquote.service;
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
-import ca.jrvs.apps.jdbc.sotckquote.dao.Quote;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteDao;
-import ca.jrvs.apps.jdbc.sotckquote.dao.QuoteHttpHelper;
+import ca.jrvs.apps.jdbc.stockquote.dao.Quote;
+import ca.jrvs.apps.jdbc.stockquote.dao.QuoteDao;
+import ca.jrvs.apps.jdbc.stockquote.dao.QuoteHttpHelper;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
