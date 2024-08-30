@@ -5,7 +5,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AmirHelali
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: Skilled and solution-driven full-stack developer with more than a year of experience. My critical thinking approach, application of software engineering principles, and adherence to testing, has allowed me to consistently create and deliver highly optimized, well-structured solutions. Java, .Net, REST APIs, RDBMS/SQL, React and Angular are my forte with a competency in Azure cloud services. My personal and professional experiences have made me highly adaptable and have taught me excellent communication and time management skills; therefore, I thrive in collaborative environments or working independently under pressure. I am dedicated to continuously improve by learning new concepts and technologies and eager to showcase my abilities.
+summary: Skilled and solution-driven full-stack developer with more than a year of experience. My time with the government of Ontario allowed me to develop my skills as a full-stack developer by updating an internal charity web application utilizing React based on the client's needs, and transforming a large old Powershell codebase into APIs for improved scalability and integration. My current experience at Jarvis has empowered me to deepen my understanding on backend design, implementation and testing, by developing a number of multi-layered Java applications. These professional experiences in addition to my academic background, have developed my critical thinking approach and adherence to good software engineering principles. As a result, I have been able to consistently create and deliver highly optimized, well-structured solutions. Java, .Net, REST APIs, RDBMS/SQL and React are my forte with a competency in Azure cloud services and Angular. My personal and professional experiences have made me a highly adaptable individual with excellent communication and time management skills. I thrive in collaborative environments or working independently under pressure. I am dedicated to continuously improve by learning new concepts and technologies and eager to showcase my abilities.
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -22,20 +22,20 @@ skills:
     - JUnit
     - NUnit
     - Agile/Scrum
-    - Git/Github
+    - Git/GitHub
   # At least 5 skills
   competent:
     - Angular
     - Python
     - Azure
     - JavaScript
-    - NodeJS
-    - Spring
+    - Node.js
     - Powershell
     - C++
     - Google Cloud Platform
   # At least 5 skills
   familiar:
+    - Spring
     - Kubernetes
     - Xamarin
     - TensorFlow
@@ -48,13 +48,12 @@ jarvis_projects:
     git_url: "/linux_sql"
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: Developed a linux cluster monitoring agent to collect and store important hardware specifications and resource usage data for each node. This solution enables administrators to make key decisions based on the collected data for resource management and planning. It was Developed using Feature Branch Workflow within Git to ensure encapsulation and tracking. Implemented bash scripts to automate data collection and storage. Setup PostgreSQL database as a docker container to ensure compatability and data integrity. Configured a cron job to automate the execution of scripts for consistent data collection and storage.
-  #- name: "Core Java Apps"
-    #git_url: "/core_java"
-    #description:
-      #- "Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      #- "JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
-      #- "Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam."
+    description: Developed a linux cluster monitoring agent to collect and store important hardware specifications and resource usage data for each node. This solution enables administrators to make key decisions based on the collected data for resource management and planning. It was Developed using Feature Branch Workflow within Git to ensure encapsulation and tracking. Implemented bash scripts to automate data collection and storage. Setup PostgreSQL database as a docker container to ensure compatibility and data integrity. Configured a cron job to automate the execution of scripts for consistent data collection and storage.
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "Grep App: A Java application that emulates grep command-line utility, it allows for pattern searching within text files and storing the results in an output file. It was developed utilizing Java streams and functional programming for better memory efficiency when processing larger files. The tools and technologies used for the implementation were: Java, Maven, Docker, SLF4J, and Intellij Idea."
+      - "Stock Quote App (In Progress): A multi-layered Java-based stock quote application that allows users to get recent stock quotes from the Alpha Vantage API and store it in a PSQL database. The users can buy stocks and compare different values for them to decide if they'd like to sell their shares to make profit. The application was developed using the DAO pattern and the JDBC API for CRUD operations. Unit and integration testing was done by utilizing JUnit and Mockito. The app will be Dockerized for better portability and consistency."
 
 # List of personal or academic projects
 # Feel free to add more projects
@@ -64,7 +63,7 @@ highlighted_projects:
     #URL is optional
     # git_url: "https://github.com/jarviscanada/jarvis_profile_builder"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: Developed a social media style web app for travellers to meet up with other fellow travellers and keep track of their activities during their adventures. Used Agile methodology to ensure sustainable development. Designed wireframes and mockups using Figma to provide a blueprint for the visual elements. Implemented a modern UI for profiles using React, CSS and Bootstrap to ensure responsiveness, consistency and maintainability. Created ERDs using Visual Paradigm for database design. Implemented APIs and middlewares using Node.js and Express to process data exchange between the client and the server. Implemented a Google maps functionality using the Google maps api. Built a CI/CD workflow using Github actions. This was a group capstone project during my studies which allowed me to master and showcase my skills as a full-stack developer, and gain experience in project management while collaborating with others.
+    description: Developed a social media style web app for travellers to meet up with other fellow travellers and keep track of their activities during their adventures. Used Agile methodology to ensure sustainable development. Designed wireframes and mockups using Figma to provide a blueprint for the visual elements. Implemented a modern UI for profiles using React, CSS and Bootstrap to ensure responsiveness, consistency and maintainability. Created ERDs using Visual Paradigm for database design. Implemented APIs and middlewares using Node.js and Express to process data exchange between the client and the server. Implemented a Google Maps functionality using the Google Maps api. Built a CI/CD workflow using GitHub actions. This was a group capstone project during my studies which allowed me to master and showcase my skills as a full-stack developer, and gain experience in project management while collaborating with others.
   - name: "Firewall Rules API"
     # git_url:
     description: Transformed Powershell scripts in charge of creation, configuration and storage of firewall rules, into serverless REST APIs, using Azure Functions and .Net. The purpose of this project was for improved integration, scalability and maintainability. Implemented authentication using Azure AD to ensure security. Utilized various Azure App-Service APIs to perform CRUD operations. Utilized Entity Framework ORM for improved productivity, and Nunit for testing. This was my main project during my co-op term at MPBSD and it allowed me to hone my skills as a backend developer in a real work environment and to learn about fundamental Azure cloud concepts. During this project, I gained real experience with Agile Methodology by participating in sprint plannings, daily scrums, sprint review and retrospective.
@@ -74,12 +73,12 @@ highlighted_projects:
 #The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
 professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
-  - title: "Developer"
+  - title: "Full-stack Developer"
     company: "Jarvis"
-    duration: "2024-present"
+    duration: "Jul 2024-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Participated in daily scrum meetings to ensure work items were on track without any issues. Developed a program for Linux cluster management following Agile principles, and utilizing Docker, bash scripts, PostgreSQL, Git/Github, and Cron."
-  - title: "Developer(Co-op)"
+    description: "Participated in daily scrum meetings to ensure work items were on track without any issues. Developed a program for Linux cluster management following Agile principles, and utilizing Docker, bash scripts, PostgreSQL, Git/GitHub, and Cron. Deployed and developed optimized Java applications including a java based Grep application that emulates Grep command-line utility and a custom-made multi-layered Stock Quote application. Utilized Docker, Maven, SLF4J, PSQL, JDBC, JUnit, Mockito, DAO pattern, IntelliJ Idea and Git/GitHub throughout the development life cycle of these Java projects."
+  - title: "Full-stack Developer(Co-op)"
     company: "Ministry of Public and Business Service Delivery"
     duration: "Jan 2023-Aug 2023"
     description: "Participated in sprint planning, daily scrum, sprint retrospective, and presented my work in sprint review to get feedback from the clients. Transformed more than 5000 lines of Powershell scripts in charge of firewall rules to serverless REST APIs using Azure Functions and .Net. Optimized SQL queries using stored procedures, views, and triggers. Updated and maintained an internal charity web application's backend and frontend based on business needs using React and .Net. Collaborated on a client application's front-end to be AODA compliant using Angular."
