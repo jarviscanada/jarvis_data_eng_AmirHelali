@@ -150,4 +150,20 @@ public class Quote {
     public void setOpen(double open) {
         this.open = open;
     }
+
+    @Override
+    public String toString() {
+        return "ticker='" + ticker + '\'' +
+                ", open=" + open +
+                ", high=" + high +
+                ", low=" + low +
+                ", price=" + price +
+                ", volume=" + volume +
+                ", latestTradingDay=" + latestTradingDay +
+                ", previousClose=" + previousClose +
+                ", change=" + change +
+                ", changePercent='" + changePercent + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
+    }
 }

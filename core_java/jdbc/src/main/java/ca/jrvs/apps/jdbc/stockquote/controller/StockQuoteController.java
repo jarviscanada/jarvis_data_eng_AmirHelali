@@ -35,11 +35,7 @@ public class StockQuoteController {
                     case "buy":
                         System.out.println("Enter ticker symbol:");
                         ticker = scanner.nextLine().trim().toUpperCase();
-                        System.out.println("Enter number of shares to buy:");
-                        int shares = Integer.parseInt(scanner.nextLine().trim());
-                        System.out.println("Enter price per share:");
-                        double price = Double.parseDouble(scanner.nextLine().trim());
-                        buyStock(ticker, shares, price);
+                        buyStock(ticker, scanner);
                         break;
 
                     case "sell":
@@ -67,14 +63,16 @@ public class StockQuoteController {
         }
     }
 
-    private void viewPosition(String ticker) {
+    private boolean viewPosition(String ticker) {
+        boolean result = false;
         Optional<Position> positionOptional = positionService.getPosition(ticker);
         if (!positionOptional.isPresent()){
             System.out.println("No position found for ticker: " + ticker);
-            return;
+            return result;
         }
+        result = true;
         Position position = positionOptional.get();
-        System.out.println("Current Position: " + position);
+        System.out.println("Current position details: " + position.getTicker() + ", " + position.getNumOfShares() + " shares");
 
         Optional<Quote> quoteOptional = quoteService.fetchQuoteDataFromAPI(ticker);
         if(quoteOptional.isPresent()){
@@ -85,55 +83,66 @@ public class StockQuoteController {
             double profitOrLoss = currentValue - position.getValuePaid();
             System.out.println("Profit/Loss: " + profitOrLoss);
         } else {
+            result = false;
             System.out.println("Unable to fetch the current quote for ticker: " + ticker);
         }
+        return result;
     }
 
     private void sellStock(String ticker) {
         try{
-            viewPosition(ticker);
-            System.out.println("Are you sure you want to sell? (yes/no)");
-            Scanner scanner = new Scanner(System.in);
-            String confirm = scanner.nextLine().trim().toLowerCase();
-            if(!confirm.equals("yes")){
-                System.out.println("Sell cancelled.");
-                return;
-            }
+            boolean viewPositionResult = viewPosition(ticker);
+            if(viewPositionResult){
+                System.out.println("Are you sure you want to sell? (yes/no)");
+                Scanner scanner = new Scanner(System.in);
+                String confirm = scanner.nextLine().trim().toLowerCase();
+                if(!confirm.equals("yes")){
+                    System.out.println("Sell cancelled.");
+                    return;
+                }
 
-            positionService.sell(ticker);
-            System.out.println("Sold all shares of: " + ticker);
+                positionService.sell(ticker);
+                System.out.println("Sold all shares of: " + ticker);
+            }
         } catch (IllegalArgumentException e){
             System.out.println("Error: " + e.getMessage());
         }
     }
 
-    private void buyStock(String ticker, int shares, double price) {
+    private void buyStock(String ticker, Scanner scanner) {
         try {
             Optional<Quote> quoteOptional = quoteService.fetchQuoteDataFromAPI(ticker);
             if (!quoteOptional.isPresent()) {
                 System.out.println("No quote data found for ticker: " + ticker);
                 return;
             }
-
             Quote currentQuote = quoteOptional.get();
-            double currentPrice = currentQuote.getPrice();
-            System.out.println("Current price per share: " + currentPrice);
+            System.out.println("Quote for " + ticker + ":");
+            System.out.println("Current Price: " + currentQuote.getPrice());
+            System.out.println("Open: " + currentQuote.getOpen());
+            System.out.println("High: " + currentQuote.getHigh());
+            System.out.println("Low: " + currentQuote.getLow());
+            System.out.println("Volume: " + currentQuote.getVolume());
 
-            if (price <= currentPrice) {
-                System.out.println("Error: The price per share must be higher than the current price of " + currentPrice);
-                return;
-            }
+            System.out.println("Do you want to proceed with buying this stock? (yes/no)");
+            String response = scanner.nextLine();
 
-            System.out.println("Are you sure you want to buy " + shares + " shares at " + price + " per share? (yes/no)");
-            Scanner scanner = new Scanner(System.in);
-            String confirmation = scanner.nextLine().trim().toLowerCase();
-            if (!confirmation.equals("yes")) {
+            if(!response.equalsIgnoreCase("yes")){
                 System.out.println("Purchase cancelled.");
                 return;
             }
+            System.out.println("Enter the number of shares you want to buy:");
+            int shares = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter the price per share you are willing to pay:");
+            double price = Double.parseDouble(scanner.nextLine());
 
+            if (price < currentQuote.getPrice()) {
+                System.out.println("The price must be higher than the current quote price. Buy operation aborted.");
+                return;
+            }
             Position position = positionService.buy(ticker, shares, price);
-            System.out.println("Bought stock: " + position);
+            System.out.println("Successfully bought: " + shares + " shares of " + ticker);
+            System.out.println("Total cost: $" + position.getValuePaid());
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
@@ -142,7 +151,7 @@ public class StockQuoteController {
     private void fetchQuote(String ticker) {
         Optional<Quote> quote = quoteService.fetchQuoteDataFromAPI(ticker);
         if(quote.isPresent()){
-            System.out.println("Quote fetched: " + quote.get());
+            System.out.println("Quote fetched: " + quote.toString());
         } else{
             System.out.println("No quote data found for ticker: " + ticker);
         }

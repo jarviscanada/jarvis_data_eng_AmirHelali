@@ -7,10 +7,8 @@ import ca.jrvs.apps.jdbc.stockquote.dao.QuoteHttpHelper;
 import ca.jrvs.apps.jdbc.stockquote.service.PositionService;
 import ca.jrvs.apps.jdbc.stockquote.service.QuoteService;
 import okhttp3.OkHttpClient;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -20,7 +18,21 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         Map<String, String> properties = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/properties.txt"))) {
+        try (InputStream inputStream = Main.class.getClassLoader().getResourceAsStream("properties.txt")) {
+            if (inputStream == null) {
+                throw new FileNotFoundException("Property file not found in the classpath.");
+            }
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] tokens = line.split(":");
+                    properties.put(tokens[0], tokens[1]);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        /*try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/properties.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(":");
@@ -28,7 +40,7 @@ public class Main {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
         try {
             Class.forName(properties.get("db-class"));

@@ -48,20 +48,4 @@ public class PositionService {
     public Optional<Position> getPosition(String ticker){
         return positionDao.findById(ticker);
     }
-
-    /*public static void main (String[] args){
-        String url = "jdbc:postgresql://localhost:5432/stock_quote";
-        try(Connection c = DriverManager.getConnection(url, "postgres", "rocky1234")){
-            QuoteDao qDao = new QuoteDao(c);
-            PositionDao pDao = new PositionDao(c);
-            OkHttpClient client = new OkHttpClient();
-            String api = "b5e19a9367msh7c400828f56fb0bp1a31ddjsna5da8e59418b";
-            QuoteHttpHelper httpHelper = new QuoteHttpHelper(api, client);
-            PositionService pService = new PositionService(pDao, qDao);
-            pService.sell("AAPL");
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }*/
 }

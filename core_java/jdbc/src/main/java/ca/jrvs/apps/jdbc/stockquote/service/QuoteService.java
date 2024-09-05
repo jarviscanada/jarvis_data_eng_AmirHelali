@@ -27,18 +27,4 @@ public class QuoteService {
             throw new IllegalArgumentException("No data found for the symbol: " + ticker, e);
         }
     }
-
-    /*public static void main (String[] args){
-        String url = "jdbc:postgresql://localhost:5432/stock_quote";
-        try(Connection c = DriverManager.getConnection(url, "postgres", "rocky1234")){
-            QuoteDao qDao = new QuoteDao(c);
-            OkHttpClient client = new OkHttpClient();
-            String api = "b5e19a9367msh7c400828f56fb0bp1a31ddjsna5da8e59418b";
-            QuoteHttpHelper httpHelper = new QuoteHttpHelper(api, client);
-            QuoteService qService = new QuoteService(qDao, httpHelper);
-            qService.fetchQuoteDataFromAPI("gnhueio");
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }*/
 }
