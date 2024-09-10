@@ -4,11 +4,15 @@ import ca.jrvs.apps.jdbc.stockquote.dao.Position;
 import ca.jrvs.apps.jdbc.stockquote.dao.Quote;
 import ca.jrvs.apps.jdbc.stockquote.service.PositionService;
 import ca.jrvs.apps.jdbc.stockquote.service.QuoteService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 import java.util.Scanner;
 
 public class StockQuoteController {
+
+    private static final Logger logger = LoggerFactory.getLogger(StockQuoteController.class);
 
     private QuoteService quoteService;
     private PositionService positionService;
@@ -19,6 +23,7 @@ public class StockQuoteController {
     }
 
     public void initClient(){
+        logger.info("Initializing client interaction");
         Scanner scanner = new Scanner(System.in);
         while(true){
             System.out.println("Enter a command: (fetch/buy/sell/view/exit)");
@@ -29,32 +34,38 @@ public class StockQuoteController {
                     case "fetch":
                         System.out.println("Enter ticker symbol:");
                         String ticker = scanner.nextLine().trim().toUpperCase();
+                        logger.info("Fetching quote for symbol: {}", ticker);
                         fetchQuote(ticker);
                         break;
 
                     case "buy":
                         System.out.println("Enter ticker symbol:");
                         ticker = scanner.nextLine().trim().toUpperCase();
+                        logger.info("Buying for symbol: {}", ticker);
                         buyStock(ticker, scanner);
                         break;
 
                     case "sell":
                         System.out.println("Enter ticker symbol:");
                         ticker = scanner.nextLine().trim().toUpperCase();
+                        logger.info("Selling for symbol: {}", ticker);
                         sellStock(ticker);
                         break;
 
                     case "view":
                         System.out.println("Enter ticker symbol:");
                         ticker = scanner.nextLine().trim().toUpperCase();
+                        logger.info("Viewing for symbol: {}", ticker);
                         viewPosition(ticker);
                         break;
 
                     case "exit":
+                        logger.info("Exiting application");
                         System.out.println("Exiting application...");
                         return;
 
                     default:
+                        logger.warn("Invalid command entered: {}", command);
                         System.out.println("Invalid command. Please try again.");
                 }
             } catch (Exception e){
@@ -105,7 +116,7 @@ public class StockQuoteController {
                 System.out.println("Sold all shares of: " + ticker);
             }
         } catch (IllegalArgumentException e){
-            System.out.println("Error: " + e.getMessage());
+            logger.error("Selling failed for symbol: {}", ticker, e);
         }
     }
 
@@ -144,7 +155,7 @@ public class StockQuoteController {
             System.out.println("Successfully bought: " + shares + " shares of " + ticker);
             System.out.println("Total cost: $" + position.getValuePaid());
         } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
+            logger.error("buying failed for symbol: {}", ticker, e);
         }
     }
 

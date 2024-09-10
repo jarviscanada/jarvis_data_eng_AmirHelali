@@ -1,5 +1,7 @@
 package ca.jrvs.apps.jdbc.stockquote.dao;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.Optional;
 
 public class QuoteDao implements CrudDao<Quote, String> {
 
+    private final Logger logger = LoggerFactory.getLogger(QuoteDao.class);
     private Connection connection;
 
     public QuoteDao(Connection connection){
@@ -33,6 +36,7 @@ public class QuoteDao implements CrudDao<Quote, String> {
                 "change_percent = EXCLUDED.change_percent, " +
                 "timestamp = EXCLUDED.timestamp";
         try(PreparedStatement statement = connection.prepareStatement(query)){
+            logger.info("Saving quote for symbol: {},", entity.getTicker());
             statement.setString(1, entity.getTicker());
             statement.setBigDecimal(2, BigDecimal.valueOf(entity.getOpen()));
             statement.setBigDecimal(3, BigDecimal.valueOf(entity.getHigh()));
@@ -46,7 +50,9 @@ public class QuoteDao implements CrudDao<Quote, String> {
             statement.setTimestamp(11, entity.getTimestamp());
 
             statement.executeUpdate();
+            logger.info("Quote saved for symbol: {}", entity.getTicker());
         } catch (SQLException e){
+            logger.error("Error saving quote for symbol: {}", entity.getTicker(), e);
             throw new RuntimeException("Error saving quote", e);
         }
         return entity;
@@ -62,12 +68,15 @@ public class QuoteDao implements CrudDao<Quote, String> {
             statement.setString(1, s);
             try(ResultSet rs = statement.executeQuery()){
                 if(rs.next()){
+                    logger.info("Quote found for symbol: {}", s);
                     return Optional.of(rowToQuoteMap(rs));
                 }else{
+                    logger.warn("No quote found for symbol: {}", s);
                     return Optional.empty();
                 }
             }
         } catch(SQLException e){
+            logger.error("Error finding quote by ID: {}", s, e);
             throw new RuntimeException("Error finding quote by ID: " + s, e);
         }
     }
@@ -80,7 +89,9 @@ public class QuoteDao implements CrudDao<Quote, String> {
             while(rs.next()){
                 quotes.add(rowToQuoteMap(rs));
             }
+            logger.info("Found {} quotes", quotes.size());
         } catch(SQLException e){
+            logger.error("Error finding quotes", e);
             throw new RuntimeException("Error finding quotes", e);
         }
         return quotes;
@@ -95,7 +106,9 @@ public class QuoteDao implements CrudDao<Quote, String> {
         try(PreparedStatement statement = connection.prepareStatement(query)){
             statement.setString(1, s);
             statement.executeUpdate();
+            logger.info("Quote deleted for symbol: {}", s);
         } catch (SQLException e){
+            logger.error("Error deleting quote by ID: {}", s, e);
             throw new RuntimeException("Error deleting quote by ID: " + s, e);
         }
     }
@@ -105,7 +118,9 @@ public class QuoteDao implements CrudDao<Quote, String> {
         String query = "DELETE FROM quote";
         try(Statement statement = connection.createStatement()){
             statement.executeUpdate(query);
+            logger.info("All quotes deleted");
         } catch(SQLException e){
+            logger.error("Error deleting quotes", e);
             throw new RuntimeException("Error deleting quotes", e);
         }
     }

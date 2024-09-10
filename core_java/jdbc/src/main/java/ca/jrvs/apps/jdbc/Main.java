@@ -7,6 +7,8 @@ import ca.jrvs.apps.jdbc.stockquote.dao.QuoteHttpHelper;
 import ca.jrvs.apps.jdbc.stockquote.service.PositionService;
 import ca.jrvs.apps.jdbc.stockquote.service.QuoteService;
 import okhttp3.OkHttpClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.sql.Connection;
@@ -16,6 +18,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
+
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
         Map<String, String> properties = new HashMap<>();
         try (InputStream inputStream = Main.class.getClassLoader().getResourceAsStream("properties.txt")) {
@@ -30,16 +35,19 @@ public class Main {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Failed to read properties file", e);
+            return;
         }
 
         try {
             Class.forName(properties.get("db-class"));
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            logger.error("JDBC driver not found", e);
+            return;
         }
         OkHttpClient client = new OkHttpClient();
         String url = "jdbc:postgresql://"+properties.get("server")+":"+properties.get("port")+"/"+properties.get("database");
+
         try (Connection c = DriverManager.getConnection(url, properties.get("username"), properties.get("password"))) {
             QuoteDao qRepo = new QuoteDao(c);
             PositionDao pRepo = new PositionDao(c);
@@ -47,9 +55,10 @@ public class Main {
             QuoteService sQuote = new QuoteService(qRepo, rcon);
             PositionService sPos = new PositionService(pRepo, qRepo);
             StockQuoteController con = new StockQuoteController(sQuote, sPos);
+            logger.info("Application started successfully");
             con.initClient();
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error connecting to the database", e);
         }
     }
 }
