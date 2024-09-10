@@ -32,15 +32,6 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/properties.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] tokens = line.split(":");
-                properties.put(tokens[0], tokens[1]);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
 
         try {
             Class.forName(properties.get("db-class"));
