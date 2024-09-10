@@ -18,14 +18,13 @@ public class QuoteDaoTest {
     private Quote quote;
     private String password;
     private String user;
-    private String dataBase;
 
     @Before
     public void setUp() throws Exception{
         password = System.getenv("PASSWORD");
-        user = System.getenv("USERNAME");
-        dataBase = System.getenv("DATABASE");
-        connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + dataBase, user, password);
+        user = System.getenv("USER");
+        String url = "jdbc:postgresql://localhost:5432/stock_quote";
+        connection = DriverManager.getConnection(url, user, password);
         quoteDao = new QuoteDao(connection);
         quote = new Quote();
         quote.setTicker("AAPL");
